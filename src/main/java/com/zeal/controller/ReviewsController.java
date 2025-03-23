@@ -1,41 +1,42 @@
 package com.zeal.controller;
 
-import com.zeal.model.UsuariosModel;
-import com.zeal.service.UsuariosService;
+import com.zeal.model.ReviewsModel;
+import com.zeal.service.ReviewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/usuarios")
-public class UsuariosController {
+@RequestMapping("api/v1/reviews")
+public class ReviewsController {
 
     @Autowired
-    private UsuariosService usuariosService;
+    private ReviewsService reviewsService;
 
-    @GetMapping("/listausuarios")
-    public List<UsuariosModel> findAll() {
-        return usuariosService.findAll();
+    @GetMapping("api/v1/listareviews")
+    public List<ReviewsModel> findAll() {
+        return reviewsService.findAll();
     }
 
     @GetMapping("/{id}")
-    public UsuariosModel findById(@PathVariable Integer id) {
-        return usuariosService.findById(id);
+    public ReviewsModel findById(@PathVariable Integer id) {
+        return reviewsService.findById(id);
     }
 
     @PostMapping
-    public UsuariosModel save(@RequestBody UsuariosModel usuariosModel) {
-        return usuariosService.save(usuariosModel);
+    public ReviewsModel save(@RequestBody ReviewsModel reviewsModel) {
+        return reviewsService.save(reviewsModel);
     }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id) {
-        usuariosService.deleteById(id);
+        reviewsService.deleteById(id);
     }
 }

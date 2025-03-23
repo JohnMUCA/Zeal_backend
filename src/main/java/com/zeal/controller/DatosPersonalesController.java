@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/datospersonales")
+@RequestMapping("api/v1/datospersonales")
 public class DatosPersonalesController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class DatosPersonalesController {
     }
 
     @GetMapping("/{id}")
-    public DatosPersonalesModel findById(Integer id) {
+    public DatosPersonalesModel findById(@PathVariable Integer id) {
         return datosPersonalesService.findById(id);
     }
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("api/v1/categorias")
 public class CategoriasController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class CategoriasController {
     }
 
     @GetMapping("/{id}")
-    public CategoriasModel findById(Integer id) {
+    public CategoriasModel findById(@PathVariable Integer id) {
         return categoriasService.findById(id);
     }
 
