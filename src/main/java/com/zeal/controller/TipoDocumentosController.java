@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/tipo_documentos")
+@RequestMapping("/api/v1/tipo_documentos")
 public class TipoDocumentosController {
     
     @Autowired
